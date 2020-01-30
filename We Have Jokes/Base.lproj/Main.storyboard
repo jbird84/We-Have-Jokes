@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,118 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="We_Have_Jokes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="R9z-z5-G2E">
+                                <rect key="frame" x="47" y="142" width="320" height="286.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select A Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJo-xV-ePh">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIf-Q0-Ldw">
+                                        <rect key="frame" x="0.0" y="30.5" width="320" height="216"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGc-o9-Qzq">
+                                        <rect key="frame" x="0.0" y="256.5" width="320" height="30"/>
+                                        <state key="normal" title="Get Joke"/>
+                                        <connections>
+                                            <action selector="getJokePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yzU-lJ-7uA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="R9z-z5-G2E" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EOm-dC-8dB"/>
+                            <constraint firstItem="R9z-z5-G2E" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="98" id="tjI-81-Knw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="pickerView" destination="WIf-Q0-Ldw" id="cG8-W2-AOI"/>
+                        <segue destination="Pbw-4G-Mg1" kind="showDetail" identifier="twopart" id="XR2-VA-Wzu"/>
+                        <segue destination="pTJ-fb-ySc" kind="showDetail" identifier="onepart" id="TNj-qg-cVv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-19" y="509"/>
+        </scene>
+        <!--Single Part JokeVC-->
+        <scene sceneID="nY2-VG-c6Q">
+            <objects>
+                <viewController id="pTJ-fb-ySc" customClass="SinglePartJokeVC" customModule="We_Have_Jokes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WDN-1u-6Xw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyK-fU-5di">
+                                <rect key="frame" x="34" y="70" width="346" height="446"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jyK-fU-5di" firstAttribute="leading" secondItem="HMb-cc-SVN" secondAttribute="leading" constant="34" id="3mL-SQ-GWN"/>
+                            <constraint firstItem="HMb-cc-SVN" firstAttribute="bottom" secondItem="jyK-fU-5di" secondAttribute="bottom" constant="292" id="Kfd-hD-Dyf"/>
+                            <constraint firstItem="jyK-fU-5di" firstAttribute="top" secondItem="HMb-cc-SVN" secondAttribute="top" constant="70" id="cTR-9D-Bcf"/>
+                            <constraint firstItem="HMb-cc-SVN" firstAttribute="trailing" secondItem="jyK-fU-5di" secondAttribute="trailing" constant="34" id="yM1-mb-KJc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HMb-cc-SVN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pBv-XG-ybk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="957.97101449275374" y="870.53571428571422"/>
+        </scene>
+        <!--Two Part JokeVC-->
+        <scene sceneID="6Ff-uY-EGU">
+            <objects>
+                <viewController id="Pbw-4G-Mg1" customClass="TwoPartJokeVC" customModule="We_Have_Jokes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AZY-b5-XB4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4Bo-AO-PbI">
+                                <rect key="frame" x="31" y="41" width="352" height="720"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Part Of Joke" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koF-jQ-nqs">
+                                        <rect key="frame" x="0.0" y="0.0" width="352" height="360"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second Part Of Joke" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnC-eT-47z">
+                                        <rect key="frame" x="0.0" y="360" width="352" height="360"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kLx-cA-o6u" firstAttribute="trailing" secondItem="4Bo-AO-PbI" secondAttribute="trailing" constant="31" id="0Ve-Mg-gAa"/>
+                            <constraint firstItem="4Bo-AO-PbI" firstAttribute="leading" secondItem="kLx-cA-o6u" secondAttribute="leading" constant="31" id="5O5-Oc-kqy"/>
+                            <constraint firstItem="kLx-cA-o6u" firstAttribute="bottom" secondItem="4Bo-AO-PbI" secondAttribute="bottom" constant="47" id="9D8-3r-MWN"/>
+                            <constraint firstItem="4Bo-AO-PbI" firstAttribute="top" secondItem="kLx-cA-o6u" secondAttribute="top" constant="41" id="Z2V-M3-f9T"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kLx-cA-o6u"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SRz-27-nT7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982.60869565217399" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
