@@ -14,6 +14,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var pickerData: [String] = [String]()
     var category = ""
     var theType = ""
+    var theSetup = ""
+    var theDelivery = ""
+    var theJoke = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,17 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         category = pickerData[row]
         return pickerData[row]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "onepart"  {
+            let vc = segue.destination as! SinglePartJokeVC
+            vc.joke = theJoke
+        } else {
+            let vc = segue.destination as! TwoPartJokeVC
+            vc.delivery = theDelivery
+            vc.setup = theSetup
+        }
     }
     
     @IBAction func getJokePressed(_ sender: Any) {
@@ -71,33 +85,27 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                                 print(types)
                                 
                                 if self.theType == "single" {
+                                    self.theJoke = jsonResult["joke"] as! String
                                     self.performSegue(withIdentifier: "onepart", sender: self)
-                                    print("It's single")
+                                    print(self.theJoke)
                                 }
                                 if self.theType == "twopart" {
-                                    print("It's Double")
+                                    self.theSetup = jsonResult["setup"] as! String
+                                    self.theDelivery = jsonResult["delivery"] as! String
                                     self.performSegue(withIdentifier: "twopart", sender: self)
+                                    print(self.theSetup, self.theDelivery)
                                 }
-                                
                             }
-                            
-                            
-                            
-                            //print(jsonResult["type"])
                         }
                         
                     } catch {
                         print(error.localizedDescription)
                     }
-                    
                 }
             }
         }
         task.resume()
-        
     }
-    
-    
 }
 
 

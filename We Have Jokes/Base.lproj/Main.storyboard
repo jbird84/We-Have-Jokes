@@ -78,6 +78,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HMb-cc-SVN"/>
                     </view>
+                    <connections>
+                        <outlet property="theJoke" destination="jyK-fU-5di" id="jt8-Dm-JrQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBv-XG-ybk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,6 +121,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kLx-cA-o6u"/>
                     </view>
+                    <connections>
+                        <outlet property="theDelivery" destination="bnC-eT-47z" id="pas-3J-0eH"/>
+                        <outlet property="theSetup" destination="koF-jQ-nqs" id="wzs-ue-Det"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SRz-27-nT7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,14 +9,21 @@
 import UIKit
 
 class TwoPartJokeVC: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
+    @IBOutlet weak var theSetup: UILabel!
+    @IBOutlet weak var theDelivery: UILabel!
+    
+    var setup = ""
+    var delivery = ""
+    
+    override func viewDidLoad() {
+          super.viewDidLoad()
 
+        theSetup.text = setup
+        theDelivery.text = delivery
+        
+      }
+    
     /*
     // MARK: - Navigation
 
